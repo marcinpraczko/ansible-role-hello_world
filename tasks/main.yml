@@ -1,0 +1,5 @@
+---
+
+- name: "Display Hello World"
+  debug:
+    msg: "Hello World"
