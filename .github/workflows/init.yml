@@ -20,5 +20,5 @@ jobs:
         echo test, and deploy your project.
     - name: Detect commands
       run: |
-        which ansible
-        which molecule
+        ansible --version
+        molecule --version
