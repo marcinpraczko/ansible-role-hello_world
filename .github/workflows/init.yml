@@ -12,13 +12,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
+    - name: Initial run of ansible test
       run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
-    - name: Detect commands
-      run: |
-        ansible --version
-        molecule --version
+        ansible-playbook -i tests/hosts tests/test-default.yml
