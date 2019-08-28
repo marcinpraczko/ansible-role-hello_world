@@ -9,6 +9,7 @@ For example:
 - Ansible-galaxy (GUI / CLI)
 - Jenkins
 - Molecule
+- GitHub Actions
 - etc  
 
 
