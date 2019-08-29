@@ -3,6 +3,17 @@ name: CI
 on: [push]
 
 jobs:
+  check:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v1
+    - name: Check commands if works
+      run: |
+        apt-get -y update
+        apt install virtualbox
+        apt install vagrant
+        vagrant --version
+  
   build:
     runs-on: ${{ matrix.os }}
 
