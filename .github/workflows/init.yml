@@ -21,16 +21,16 @@ jobs:
     - name: Apt-get Update packages
       run: sudo apt-get -y update
     - name: Apt-get Install required software
-      run: sudo apt-get -y install virtualbox vagrant
-    - name: Start vagrant
       run: |
+        sudo apt-get -y install virtualbox vagrant
         vagrant --version
-        # NOTE: So far this was working fine - however following commands ended with timeout (had to cancel)
-        # vagrant plugin install vagrant-vbguest
-        vagrant up
-        vagrant status
-        vagrant destroy -f
-  
+    - name: Vagrant Start
+      run: VAGRANT_LOG=info vagrant up
+    - name: Vagrant Status
+      run: VAGRANT_LOG=info vagrant status
+    - name: Vagrant Destroy
+      run: VAGRANT_LOG=info vagrant destroy -f
+
   build:
     runs-on: ${{ matrix.os }}
 
@@ -41,5 +41,4 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Initial run of ansible test
-      run: |
-        ansible-playbook -i tests/hosts tests/test-default.yml
+      run: ansible-playbook -i tests/hosts tests/test-default.yml
