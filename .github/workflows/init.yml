@@ -11,9 +11,9 @@ jobs:
       run: |
         id
         sudo id
-        apt-get -y update
-        apt install virtualbox
-        apt install vagrant
+        sudo apt-get -y update
+        sudo apt install virtualbox
+        sudo apt install vagrant
         vagrant --version
   
   build:
