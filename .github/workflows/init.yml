@@ -17,15 +17,18 @@ jobs:
         ps -eaf
         sudo iptables -nvL
         ls -la
-    - name: Check commands if works
+        pwd
+    - name: Apt-get Update packages
+      run: sudo apt-get -y update
+    - name: Apt-get Install required software
+      run: sudo apt-get -y install virtualbox vagrant
+    - name: Start vagrant
       run: |
-        sudo apt-get -y update
-        sudo apt install virtualbox
-        sudo apt install vagrant
         vagrant --version
-        vagrant plugin install vagrant-vbguest
         # NOTE: So far this was working fine - however following commands ended with timeout (had to cancel)
+        # vagrant plugin install vagrant-vbguest
         vagrant up
+        vagrant status
         vagrant destroy -f
   
   build:
