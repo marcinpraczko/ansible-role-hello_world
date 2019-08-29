@@ -7,17 +7,25 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v1
-    - name: Check commands if works
+    - name: Check simple settings
       run: |
         id
         sudo id
+        free
+        df -h
+        lscpu
+        ps -eaf
+        sudo iptables -nvL
+    - name: Check commands if works
+      run: |
         sudo apt-get -y update
         sudo apt install virtualbox
         sudo apt install vagrant
         vagrant --version
         vagrant init centos/7
-        vagrant up
-        vagrant destroy -f
+        # NOTE: So far this was working fine - however following commands ended with timeout (had to cancel)
+        # vagrant up
+        # vagrant destroy -f
   
   build:
     runs-on: ${{ matrix.os }}
