@@ -28,6 +28,7 @@ Vagrant.configure("2") do |config|
   HOSTS.each do | (name, cfg) |
     ipaddr, ram, box = cfg
 
+    config.vm.boot_timeout = 600
     config.vm.define name do |machine|
       machine.vm.box = box
       machine.vm.synced_folder ".", "/vagrant", disabled: true
