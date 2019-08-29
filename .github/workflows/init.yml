@@ -22,7 +22,7 @@ jobs:
         sudo apt install virtualbox
         sudo apt install vagrant
         vagrant --version
-        vagrant init centos/7
+        vagrant plugin install vagrant-vbguest
         # NOTE: So far this was working fine - however following commands ended with timeout (had to cancel)
         # vagrant up
         # vagrant destroy -f
