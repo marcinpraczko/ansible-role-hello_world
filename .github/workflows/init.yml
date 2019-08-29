@@ -9,6 +9,8 @@ jobs:
     - uses: actions/checkout@v1
     - name: Check commands if works
       run: |
+        id
+        sudo id
         apt-get -y update
         apt install virtualbox
         apt install vagrant
