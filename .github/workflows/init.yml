@@ -16,6 +16,7 @@ jobs:
         lscpu
         ps -eaf
         sudo iptables -nvL
+        ls -la
     - name: Check commands if works
       run: |
         sudo apt-get -y update
@@ -24,8 +25,8 @@ jobs:
         vagrant --version
         vagrant plugin install vagrant-vbguest
         # NOTE: So far this was working fine - however following commands ended with timeout (had to cancel)
-        # vagrant up
-        # vagrant destroy -f
+        vagrant up
+        vagrant destroy -f
   
   build:
     runs-on: ${{ matrix.os }}
