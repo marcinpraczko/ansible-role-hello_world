@@ -15,6 +15,9 @@ jobs:
         sudo apt install virtualbox
         sudo apt install vagrant
         vagrant --version
+        vagrant init centos/7
+        vagrant up
+        vagrant destroy -f
   
   build:
     runs-on: ${{ matrix.os }}
