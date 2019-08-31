@@ -1,7 +1,7 @@
 ---
 
 - name: Testing role
-  connections: local
+  connection: local
   hosts: localhost
 
   roles:
